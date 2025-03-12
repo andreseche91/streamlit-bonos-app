@@ -30,7 +30,7 @@ col1, col2 = st.columns([8, 1])
 with col2:
     st.image("logo_r5.png", width=100)
 
-st.title("Validación de Placa y Token para Bonos ⛽")
+st.title("Validación para tu Bono ⛽")
 placa = st.text_input("Ingresa tu placa:")
 token = st.text_input("Ingresa el token que llegó a tu correo:")
 validar = st.button("Validar")
