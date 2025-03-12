@@ -32,7 +32,7 @@ with col2:
 
 st.title("Validación de Placa y Token para Bonos ⛽")
 placa = st.text_input("Ingresa tu placa:")
-token = st.text_input("Ingresa tu token:")
+token = st.text_input("Ingresa el token que llegó a tu correo:")
 validar = st.button("Validar")
 
 if validar:
