@@ -30,8 +30,9 @@ col1, col2 = st.columns([8, 1])
 with col2:
     st.image("logo_r5.png", width=100)
 
-st.title("Validación de Placa para Bonos ⛽")
+st.title("Validación de Placa y Token para Bonos ⛽")
 placa = st.text_input("Ingresa tu placa:")
+token = st.text_input("Ingresa tu token:")
 validar = st.button("Validar")
 
 if validar:
@@ -40,7 +41,8 @@ if validar:
     bono_encontrado = False
     
     for registro in registros:
-        if registro["Placa"].strip().upper() == placa.strip().upper():
+        if (registro["Placa"].strip().upper() == placa.strip().upper() and
+            registro["Token"].strip() == token.strip()):
             if registro["Fecha de Expiración"]:
                 fecha_str = registro["Fecha de Expiración"].strip()
                 
@@ -86,7 +88,7 @@ if validar:
             st.stop()
     
     if not bono_encontrado:
-        st.error("Lo sentimos, esa placa aún no registra en nuestro sistema. Por favor, intenta de nuevo más tarde o comunícate con nuestros copilotos por medio del chat de la App.")
+        st.error("Lo sentimos, la placa y el token no coinciden o no están registrados en nuestro sistema. Por favor, intenta de nuevo más tarde o comunícate con nuestros copilotos por medio del chat de la App.")
 
 if 'validated' in st.session_state and st.session_state['validated']:
     st.empty()
